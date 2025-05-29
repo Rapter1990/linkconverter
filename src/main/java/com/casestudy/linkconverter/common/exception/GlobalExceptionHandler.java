@@ -1,6 +1,7 @@
 package com.casestudy.linkconverter.common.exception;
 
 import com.casestudy.linkconverter.common.model.CustomError;
+import com.casestudy.linkconverter.converter.exception.DeepLinkConversionException;
 import jakarta.validation.ConstraintViolationException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
@@ -81,6 +82,17 @@ public class GlobalExceptionHandler {
                 .build();
 
         return new ResponseEntity<>(customError, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(DeepLinkConversionException.class)
+    protected ResponseEntity<CustomError> handleDeepLinkConversion(DeepLinkConversionException ex) {
+        CustomError error = CustomError.builder()
+                .httpStatus(DeepLinkConversionException.STATUS)
+                .header(CustomError.Header.API_ERROR.getName())
+                .message(ex.getMessage())
+                .build();
+
+        return new ResponseEntity<>(error, DeepLinkConversionException.STATUS);
     }
 
 }
