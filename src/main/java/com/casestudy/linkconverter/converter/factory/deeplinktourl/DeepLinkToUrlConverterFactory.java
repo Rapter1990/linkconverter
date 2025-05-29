@@ -1,6 +1,5 @@
 package com.casestudy.linkconverter.converter.factory.deeplinktourl;
 
-import com.casestudy.linkconverter.converter.factory.DeepLinkToUrlConverter;
 import com.casestudy.linkconverter.converter.utils.DeeplinkConstants;
 import org.springframework.stereotype.Component;
 

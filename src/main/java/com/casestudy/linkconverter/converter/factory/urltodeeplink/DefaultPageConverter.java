@@ -1,6 +1,5 @@
 package com.casestudy.linkconverter.converter.factory.urltodeeplink;
 
-import com.casestudy.linkconverter.converter.factory.UrlConverter;
 import com.casestudy.linkconverter.converter.utils.DeeplinkConstants;
 
 public class DefaultPageConverter implements UrlConverter {

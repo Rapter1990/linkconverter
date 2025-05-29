@@ -1,7 +1,7 @@
 package com.casestudy.linkconverter.converter.service;
 
-import com.casestudy.linkconverter.converter.factory.DeepLinkToUrlConverter;
-import com.casestudy.linkconverter.converter.factory.UrlConverter;
+import com.casestudy.linkconverter.converter.factory.deeplinktourl.DeepLinkToUrlConverter;
+import com.casestudy.linkconverter.converter.factory.urltodeeplink.UrlConverter;
 import com.casestudy.linkconverter.converter.factory.deeplinktourl.DeepLinkToUrlConverterFactory;
 import com.casestudy.linkconverter.converter.factory.urltodeeplink.UrlToDeepLinkConverterFactory;
 import com.casestudy.linkconverter.converter.model.Conversion;

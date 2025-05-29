@@ -1,7 +1,6 @@
 package com.casestudy.linkconverter.converter.factory.deeplinktourl;
 
 import com.casestudy.linkconverter.converter.exception.DeepLinkConversionException;
-import com.casestudy.linkconverter.converter.factory.DeepLinkToUrlConverter;
 import com.casestudy.linkconverter.converter.utils.ConverterUtils;
 import com.casestudy.linkconverter.converter.utils.DeeplinkConstants;
 

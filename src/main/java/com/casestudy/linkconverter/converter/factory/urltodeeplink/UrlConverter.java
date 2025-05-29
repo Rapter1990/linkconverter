@@ -1,4 +1,4 @@
-package com.casestudy.linkconverter.converter.factory;
+package com.casestudy.linkconverter.converter.factory.urltodeeplink;
 
 public interface UrlConverter {
 
