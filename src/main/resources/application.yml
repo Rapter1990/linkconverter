@@ -1,0 +1,41 @@
+server:
+  port: 5150
+
+# MYSQL
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    name: mysql
+    url: jdbc:mysql://${LINKCONVERTER_SERVICE_DB_IP:localhost}:${LINKCONVERTER_SERVICE_DB_PORT:3306}/linkconverterdatabase
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:password}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  application:
+    name: linkconterter
+
+# SWAGGER
+springdoc:
+  api-docs:
+    enabled: true
+  show-actuator: true
+  override-with-generic-response: false
+
+# Prometheus
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+          - prometheus
+  prometheus:
+    metrics:
+      export:
+        enabled: true
