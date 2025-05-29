@@ -8,12 +8,16 @@ import com.casestudy.linkconverter.converter.model.Conversion;
 import com.casestudy.linkconverter.converter.model.entity.UrlConversionEntity;
 import com.casestudy.linkconverter.converter.model.mapper.UrlConversionEntityToConversionMapper;
 import com.casestudy.linkconverter.converter.repository.UrlConversionRepository;
+import com.casestudy.linkconverter.converter.utils.DeeplinkConstants;
+import org.springframework.cache.annotation.Cacheable;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@CacheConfig(cacheNames = DeeplinkConstants.URL_CONVERSION_CACHE)
 public class UrlConversionService {
 
     private final UrlToDeepLinkConverterFactory urlToDeepLinkConverterFactory;
@@ -22,6 +26,7 @@ public class UrlConversionService {
     private final UrlConversionEntityToConversionMapper urlConversionEntityToConversionMapper
             = UrlConversionEntityToConversionMapper.initialize();;
 
+    @Cacheable(key = "#url")
     @Transactional
     public Conversion convert(String url) {
 
@@ -38,6 +43,7 @@ public class UrlConversionService {
         return urlConversionEntityToConversionMapper.mapFromEntity(savedUrlConversion);
     }
 
+    @Cacheable(key = "#deeplink")
     @Transactional
     public Conversion convertDeepLink(String deeplink) {
         DeepLinkToUrlConverter conv = deepLinkToUrlConverterFactory.getConverter(deeplink);
@@ -45,7 +51,7 @@ public class UrlConversionService {
 
         UrlConversionEntity record = UrlConversionEntity.builder()
                 .requestUrl(deeplink)
-                .deeplink(webUrl)            // reusing your fields: `deeplink` now holds the web URL
+                .deeplink(webUrl)
                 .build();
 
         UrlConversionEntity savedUrlConversion = urlConversionRepository.save(record);

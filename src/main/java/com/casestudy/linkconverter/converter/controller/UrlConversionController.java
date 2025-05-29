@@ -6,11 +6,17 @@ import com.casestudy.linkconverter.converter.model.dto.request.ConversionRequest
 import com.casestudy.linkconverter.converter.model.dto.response.ConversionResponse;
 import com.casestudy.linkconverter.converter.model.mapper.ConversionToConversionResponseMapper;
 import com.casestudy.linkconverter.converter.service.UrlConversionService;
+import com.casestudy.linkconverter.converter.utils.DeeplinkConstants;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +29,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @Tag(name = "Url Conversion", description = "Handles operations for url conversion")
 public class UrlConversionController {
+
+    private static final Logger logger = LoggerFactory.getLogger(UrlConversionController.class);
 
     private final UrlConversionService urlConversionService;
 
@@ -57,6 +65,17 @@ public class UrlConversionController {
         Conversion convert = urlConversionService.convertDeepLink(request.getUrl());
         ConversionResponse conversionResponse = conversionToConversionResponseMapper.mapToResponse(convert);
         return CustomResponse.successOf(conversionResponse);
+    }
+
+    /**
+     * Clears the cache entries periodically.
+     * This method is scheduled to run at a fixed rate and clears all cache entries.
+     */
+    @CacheEvict(allEntries = true, cacheNames = {DeeplinkConstants.URL_CONVERSION_CACHE})
+    @PostConstruct
+    @Scheduled(fixedRateString = "${conversion-api.cache-ttl}")
+    public void clearCache() {
+        logger.info("Caches are cleared");
     }
 
 }

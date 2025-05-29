@@ -39,3 +39,6 @@ management:
     metrics:
       export:
         enabled: true
+
+conversion-api:
+  cache-ttl: 10s # 10 seconds

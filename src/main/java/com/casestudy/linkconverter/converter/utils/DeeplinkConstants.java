@@ -67,4 +67,7 @@ public final class DeeplinkConstants {
     // Delimiter between path and query in a URI
     public static final String QUERY_DELIMITER        = "?";
 
+    // Cache name for URL conversions
+    public static final String URL_CONVERSION_CACHE = "urlConversionCache";
+
 }
