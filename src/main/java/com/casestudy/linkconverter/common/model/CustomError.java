@@ -9,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Represents a standardized error response for API operations.
+ */
 @Getter
 @Builder
 public class CustomError {

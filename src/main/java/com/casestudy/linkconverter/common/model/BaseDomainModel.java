@@ -9,6 +9,10 @@ import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 
+/**
+ * Abstract base class for domain models, providing a creation timestamp field.
+ * Subclasses inherit a {@code createdAt} property that records when the domain object was instantiated or persisted.
+ */
 @Getter
 @Setter
 @SuperBuilder

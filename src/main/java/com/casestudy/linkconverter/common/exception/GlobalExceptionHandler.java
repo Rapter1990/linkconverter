@@ -14,9 +14,27 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Global exception handler that intercepts various exceptions thrown by controllers
+ * and converts them into well-formed {@link CustomError} responses.
+ *
+ * <p>Handled exception types:
+ * <ul>
+ *   <li>{@link MethodArgumentNotValidException} – for @Valid request‐body validation failures</li>
+ *   <li>{@link ConstraintViolationException} – for @PathVariable/@RequestParam constraint violations</li>
+ *   <li>{@link RuntimeException} – for uncaught runtime errors (mapped to 404)</li>
+ *   <li>{@link DeepLinkConversionException} – for custom deep-link conversion errors</li>
+ * </ul>
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    /**
+     * Handle validation errors on request bodies annotated with {@code @Valid}.
+     *
+     * @param ex the exception containing field‐level validation failures
+     * @return a 400 Bad Request with a {@link CustomError} describing each sub-error
+     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     protected ResponseEntity<Object> handleMethodArgumentNotValid(final MethodArgumentNotValidException ex) {
 
@@ -46,6 +64,12 @@ public class GlobalExceptionHandler {
 
     }
 
+    /**
+     * Handle constraint violations on path variables or request parameters.
+     *
+     * @param ex the exception containing constraint violations
+     * @return a 400 Bad Request with a {@link CustomError} listing each violation
+     */
     @ExceptionHandler(ConstraintViolationException.class)
     protected ResponseEntity<Object> handlePathVariableErrors(final ConstraintViolationException ex) {
 
@@ -73,6 +97,12 @@ public class GlobalExceptionHandler {
 
     }
 
+    /**
+     * Handle any uncaught {@link RuntimeException}.
+     *
+     * @param ex the runtime exception
+     * @return a 404 Not Found with a {@link CustomError} containing the exception message
+     */
     @ExceptionHandler(RuntimeException.class)
     protected ResponseEntity<?> handleRuntimeException(final RuntimeException ex) {
         CustomError customError = CustomError.builder()
@@ -84,6 +114,12 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(customError, HttpStatus.NOT_FOUND);
     }
 
+    /**
+     * Handle application-specific {@link DeepLinkConversionException}.
+     *
+     * @param ex the deep-link conversion exception, including its HTTP status
+     * @return a response with the exception’s configured status and a {@link CustomError}
+     */
     @ExceptionHandler(DeepLinkConversionException.class)
     protected ResponseEntity<CustomError> handleDeepLinkConversion(DeepLinkConversionException ex) {
         CustomError error = CustomError.builder()

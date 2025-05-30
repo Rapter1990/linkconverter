@@ -11,6 +11,10 @@ import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 
+/**
+ * Abstract base class for JPA entities, providing common auditing fields.
+ * This class should be extended by all entities that require auditing.
+ */
 @Getter
 @Setter
 @SuperBuilder
@@ -22,6 +26,10 @@ public abstract class BaseEntity {
     @Column(name = "CREATED_AT")
     protected LocalDateTime createdAt;
 
+    /**
+     * Callback method invoked before the entity is persisted.
+     * Sets {@code createdAt} to the current system time if not already set.
+     */
     @PrePersist
     public void prePersist() {
         this.createdAt = LocalDateTime.now();

@@ -7,6 +7,11 @@ import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
+/**
+ * Represents a standard API response structure.
+ *
+ * @param <T> the type of response payload
+ */
 @Getter
 @Builder
 public class CustomResponse<T> {
