@@ -32,7 +32,7 @@ public class UrlConversionService {
     private final DeepLinkToUrlConverterFactory deepLinkToUrlConverterFactory;
     private final UrlConversionRepository urlConversionRepository;
     private final UrlConversionEntityToConversionMapper urlConversionEntityToConversionMapper
-            = UrlConversionEntityToConversionMapper.initialize();;
+            = UrlConversionEntityToConversionMapper.initialize();
 
     /**
      * Convert a web URL into a deep link, save the record, and cache by URL.
