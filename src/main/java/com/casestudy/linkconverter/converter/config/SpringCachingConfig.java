@@ -7,6 +7,19 @@ import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
+/**
+ * Configuration for application caching.
+ * <p>
+ * Enables Spring's annotation-driven cache management and defines
+ * the CacheManager bean responsible for managing application caches.
+ * </p>
+ *
+ * <p>This configuration creates a {@link ConcurrentMapCacheManager} with
+ * a cache name defined by {@link DeeplinkConstants#URL_CONVERSION_CACHE}.
+ * </p>
+ *
+ */
 @Configuration
 @EnableCaching
 public class SpringCachingConfig {

@@ -6,8 +6,24 @@ import org.springframework.stereotype.Component;
 
 import java.net.URI;
 
+/**
+ * Factory component that provides the appropriate {@link UrlConverter}
+ * based on the structure of the input URL.
+ */
 @Component
 public class UrlToDeepLinkConverterFactory {
+
+    /**
+     * Determine and return a URL converter for the specified web URL.
+     * <p>
+     * Strips whitespace, parses the URI, and selects a converter
+     * for product pages, search pages, or the default home link.
+     * </p>
+     *
+     * @param url the input web URL
+     * @return an implementation of {@link UrlConverter} suited to the URL
+     * @throws DeepLinkConversionException if the URL is malformed
+     */
     public UrlConverter getConverter(String url) {
 
         // 1) remove any whitespace or line-breaks

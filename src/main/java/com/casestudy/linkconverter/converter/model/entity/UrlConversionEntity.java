@@ -5,6 +5,12 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * JPA entity representing a persisted URL conversion record.
+ * <p>
+ * Extends {@link BaseEntity} to include auditing fields.
+ * </p>
+ */
 @Entity
 @Getter
 @Setter
@@ -12,7 +18,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "url-coversions")
+@Table(name = "url-conversions")
 public class UrlConversionEntity extends BaseEntity {
 
     @Id

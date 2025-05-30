@@ -7,12 +7,17 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 
+/**
+ * Mapper interface to convert from {@link UrlConversionEntity} to {@link Conversion}.
+ */
 @Mapper
 public interface UrlConversionEntityToConversionMapper extends BaseMapper<UrlConversionEntity, Conversion> {
 
     /**
-     * Maps a UrlConversionEntity to a Conversion, copying the original URL
-     * and the generated deep link.
+     * Map a JPA entity to the Conversion domain model.
+     *
+     * @param entity the persisted entity
+     * @return a Conversion object with originalUrl and deeplink fields
      */
     @Named("mapFromEntity")
     default Conversion mapFromEntity(UrlConversionEntity entity) {
@@ -23,7 +28,9 @@ public interface UrlConversionEntityToConversionMapper extends BaseMapper<UrlCon
     }
 
     /**
-     * Returns a singleton mapper instance.
+     * Obtain a singleton instance of the mapper.
+     *
+     * @return the mapper implementation
      */
     static UrlConversionEntityToConversionMapper initialize() {
         return Mappers.getMapper(UrlConversionEntityToConversionMapper.class);

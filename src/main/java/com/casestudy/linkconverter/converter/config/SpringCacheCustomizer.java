@@ -7,6 +7,18 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+
+/**
+ * Customizes the application's cache manager configuration.
+ * <p>
+ * Sets up named caches and configures null-value handling for the
+ * {@link ConcurrentMapCacheManager} used by Spring's caching abstraction.
+ * </p>
+ *
+ * <p>This component is detected and applied automatically by the Spring
+ * container at startup.</p>
+ *
+ */
 @Component
 public class SpringCacheCustomizer implements CacheManagerCustomizer<ConcurrentMapCacheManager> {
 

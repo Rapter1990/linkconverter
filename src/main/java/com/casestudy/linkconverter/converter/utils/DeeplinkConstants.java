@@ -3,6 +3,9 @@ package com.casestudy.linkconverter.converter.utils;
 
 import java.util.regex.Pattern;
 
+/**
+ * Constants used for building and parsing deep links and URLs.
+ */
 public final class DeeplinkConstants {
 
     //  URL TO DEEPLINK

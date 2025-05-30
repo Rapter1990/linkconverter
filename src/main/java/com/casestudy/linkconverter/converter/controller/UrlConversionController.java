@@ -23,6 +23,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * REST controller for URL and deep link conversion operations.
+ * <p>
+ * Provides endpoints to convert a standard web URL to a mobile deep link
+ * and vice versa. Also schedules periodic cache eviction to ensure
+ * fresh conversion results.</p>
+ *
+ */
 @RestController
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
@@ -37,6 +45,12 @@ public class UrlConversionController {
     private final ConversionToConversionResponseMapper conversionToConversionResponseMapper
             = ConversionToConversionResponseMapper.initialize();
 
+    /**
+     * Convert a standard web URL into a mobile deep link.
+     *
+     * @param request contains the URL to be converted
+     * @return a {@link CustomResponse} with the converted deep link
+     */
     @Operation(
             summary     = "Convert a web URL into a deep link",
             description = "Accepts a standard web URL and returns the corresponding mobile deep link."
@@ -52,6 +66,12 @@ public class UrlConversionController {
         return CustomResponse.successOf(conversionResponse);
     }
 
+    /**
+     * Convert a mobile deep link into a standard web URL.
+     *
+     * @param request contains the deep link to be converted
+     * @return a {@link CustomResponse} with the converted web URL
+     */
     @Operation(
             summary     = "Convert a deep link into a web URL",
             description = "Accepts a mobile deep link and returns the corresponding standard web URL."

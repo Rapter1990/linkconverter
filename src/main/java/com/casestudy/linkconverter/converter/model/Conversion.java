@@ -6,6 +6,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * Domain model representing a URL conversion result.
+ * <p>
+ * Contains the original URL and the generated deep link.
+ * Inherits creation timestamp from {@link BaseDomainModel}.
+ * </p>
+ */
 @Getter
 @Setter
 @SuperBuilder

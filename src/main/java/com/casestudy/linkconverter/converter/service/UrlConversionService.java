@@ -15,6 +15,14 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Service managing URL ↔ deep-link conversions.
+ * <p>
+ * Provides methods to convert web URLs to deep links and vice versa,
+ * persisting each conversion and caching results for performance.
+ * </p>
+ *
+ */
 @Service
 @RequiredArgsConstructor
 @CacheConfig(cacheNames = DeeplinkConstants.URL_CONVERSION_CACHE)
@@ -26,6 +34,12 @@ public class UrlConversionService {
     private final UrlConversionEntityToConversionMapper urlConversionEntityToConversionMapper
             = UrlConversionEntityToConversionMapper.initialize();;
 
+    /**
+     * Convert a web URL into a deep link, save the record, and cache by URL.
+     *
+     * @param url the web URL to convert
+     * @return a Conversion object containing original URL and generated deep link
+     */
     @Cacheable(key = "#url")
     @Transactional
     public Conversion convert(String url) {
@@ -43,6 +57,12 @@ public class UrlConversionService {
         return urlConversionEntityToConversionMapper.mapFromEntity(savedUrlConversion);
     }
 
+    /**
+     * Convert a deep link into a web URL, save the record, and cache by deep link.
+     *
+     * @param deeplink the deep link to convert
+     * @return a Conversion object containing deep link and resulting web URL
+     */
     @Cacheable(key = "#deeplink")
     @Transactional
     public Conversion convertDeepLink(String deeplink) {

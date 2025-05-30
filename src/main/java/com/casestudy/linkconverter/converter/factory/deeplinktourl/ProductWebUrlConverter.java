@@ -6,8 +6,22 @@ import com.casestudy.linkconverter.converter.utils.DeeplinkConstants;
 
 import java.util.Map;
 
+/**
+ * Converter for product deep links into product page web URLs.
+ */
 public class ProductWebUrlConverter implements DeepLinkToUrlConverter {
 
+    /**
+     * Convert a product deep link into its corresponding web URL.
+     * <p>
+     * Ensures ContentId is present and appends optional boutique
+     * and merchant IDs if provided.
+     * </p>
+     *
+     * @param deeplink the product deep link to convert
+     * @return the full product page web URL
+     * @throws DeepLinkConversionException if the contentId parameter is missing
+     */
     @Override
     public String convert(String deeplink) {
         // 1) sanitize + pull query
@@ -36,6 +50,7 @@ public class ProductWebUrlConverter implements DeepLinkToUrlConverter {
                     .append(DeeplinkConstants.KEY_VALUE_DELIMITER)
                     .append(params.get(DeeplinkConstants.DL_PARAM_CAMPAIGN_ID));
         }
+
         // 5) optional merchantId → &merchantId=…
         if (params.containsKey(DeeplinkConstants.DL_PARAM_MERCHANT_ID)) {
             boolean hasQuestion = url.indexOf(DeeplinkConstants.QUERY_DELIMITER) >= 0;
@@ -49,4 +64,5 @@ public class ProductWebUrlConverter implements DeepLinkToUrlConverter {
 
         return url.toString();
     }
+
 }

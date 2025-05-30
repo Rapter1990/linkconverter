@@ -7,8 +7,22 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 
+/**
+ * Converter for product detail pages, transforming a web URL
+ * into a product deep link.
+ */
 public class ProductPageConverter implements UrlConverter {
 
+    /**
+     * Convert a product page URL into a deep link.
+     * <p>
+     * Extracts the product content ID from the path and appends
+     * optional boutique and merchant parameters if present.
+     * </p>
+     *
+     * @param url the product page URL
+     * @return the corresponding deep link, or home link if ID missing/error
+     */
     @Override
     public String convert(String url) {
         String sanitized = ConverterUtils.sanitizeUrl(url);
@@ -49,6 +63,16 @@ public class ProductPageConverter implements UrlConverter {
         }
     }
 
+    /**
+     * Extract the content ID from the URL path.
+     * <p>
+     * Supports both '/product/{id}' segments and trailing numeric IDs
+     * after a hyphen.
+     * </p>
+     *
+     * @param path the URI path
+     * @return the content ID string, or null if not found
+     */
     private String extractContentId(String path) {
         // unchanged from before…
         int idx = path.lastIndexOf(DeeplinkConstants.PRODUCT_PATH_SEGMENT);
@@ -70,4 +94,5 @@ public class ProductPageConverter implements UrlConverter {
         }
         return null;
     }
+
 }

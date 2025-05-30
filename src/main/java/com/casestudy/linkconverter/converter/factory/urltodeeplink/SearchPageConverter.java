@@ -7,8 +7,22 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 
+/**
+ * Converter for search result pages, transforming a web URL
+ * into a search deep link.
+ */
 public class SearchPageConverter implements UrlConverter {
 
+    /**
+     * Convert a search page URL into a deep link.
+     * <p>
+     * Parses query parameters for the search term and builds
+     * a deep link with the appropriate page and query fields.
+     * </p>
+     *
+     * @param url the search page URL
+     * @return the corresponding deep link, or home link on error
+     */
     @Override
     public String convert(String url) {
         String sanitized = ConverterUtils.sanitizeUrl(url);
@@ -30,4 +44,5 @@ public class SearchPageConverter implements UrlConverter {
             return ConverterUtils.homeDeepLink();
         }
     }
+
 }
