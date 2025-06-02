@@ -1,0 +1,530 @@
+{
+	"info": {
+		"_postman_id": "fa2e6453-2de3-4d88-a468-e39061659582",
+		"name": "Link Converter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33002673"
+	},
+	"item": [
+		{
+			"name": "url to deeplink",
+			"item": [
+				{
+					"name": "product detail page",
+					"item": [
+						{
+							"name": "Url to Deeplink for Product Detail Page 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"https://www.trendyol.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/url",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"url"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Url to Deeplink for Product Detail Page 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"https://www.trendyol.com/casio/erkek-kol-saatip-1925865\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/url",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"url"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Url to Deeplink for Product Detail Page 3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"https://www.trendyol.com/casio/erkek-kol-saatip-1925865?boutiqueId=439892\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/url",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"url"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Url to Deeplink for Product Detail Page 4",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"https://www.trendyol.com/casio/erkek-kol-saatip-1925865?merchantId=105064\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/url",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"url"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "search page",
+					"item": [
+						{
+							"name": "Url to Deeplink for Search Page 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"https://www.trendyol.com/sr?q=elbise\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/url",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"url"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Url to Deeplink for Search Page 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"https://www.trendyol.com/sr?q=%C3%BCt%C3%BC\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/url",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"url"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "other page",
+					"item": [
+						{
+							"name": "Url to Deeplink for Other Page 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"https://www.trendyol.com/Hesabim/Favoriler\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/url",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"url"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Url to Deeplink for Other Page 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"https://www.trendyol.com/Hesabim/#/Siparislerim\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/url",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"url"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "deeplink to url",
+			"item": [
+				{
+					"name": "product detail page",
+					"item": [
+						{
+							"name": "Deeplink  to Url for Product Detail Page 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/deeplink",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"deeplink"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deeplink  to Url  for Product Detail Page 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"ty://?Page=Product&ContentId=1925865\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/deeplink",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"deeplink"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deeplink  to Url  for Product Detail Page 3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"ty://?Page=Product&ContentId=1925865&CampaignId=439892\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/deeplink",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"deeplink"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deeplink  to Url  for Product Detail Page 4",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"ty://?Page=Product&ContentId=1925865&MerchantId=105064\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/deeplink",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"deeplink"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "search page",
+					"item": [
+						{
+							"name": "Deeplink  to Url  for Search Page 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"ty://?Page=Search&Query=elbise\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/deeplink",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"deeplink"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deeplink  to Url  for Search Page 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"ty://?Page=Search&Query=%C3%BCt%C3%BC\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/deeplink",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"deeplink"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "other page",
+					"item": [
+						{
+							"name": "Deeplink  to Url  for Other Page 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"ty://?Page=Favorites\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/deeplink",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"deeplink"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deeplink  to Url  for Other Page 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\" : \"ty://?Page=Orders\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:5150/api/v1/convert/deeplink",
+									"host": [
+										"localhost"
+									],
+									"port": "5150",
+									"path": [
+										"api",
+										"v1",
+										"convert",
+										"deeplink"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
