@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linkconverter
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: linkconverter
+  template:
+    metadata:
+      labels:
+        app: linkconverter
+    spec:
+      containers:
+        - name: linkconverter
+          image: noyandocker/linkconverter:latest
+          ports:
+            - containerPort: 5150  # Use the SERVER_PORT from the config map, if applicable.
+          envFrom:
+            - configMapRef:
+                name: linkconverter-config
+          env:
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: DATABASE_USERNAME
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: DATABASE_PASSWORD
+            - name: spring.datasource.url
+              value: "jdbc:mysql://mysql.default.svc.cluster.local:3307/linkconverterdatabase"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: linkconverter-service
+  namespace: default
+spec:
+  selector:
+    app: linkconverter
+  ports:
+    - protocol: TCP
+      port: 5150
+      targetPort: 5150
+  type: NodePort

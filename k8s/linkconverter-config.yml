@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: linkconverter-config
+  namespace: default
+data:
+  LINKCONVERTER_SERVICE_DB_IP: "mysql.default.svc.cluster.local"
+  LINKCONVERTER_SERVICE_DB_PORT: "3307"
+  SERVER_PORT: "5150"
