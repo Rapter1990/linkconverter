@@ -46,7 +46,7 @@
 <pre><code>ty://?Page=Home</code></pre>
 
 <h4>Example Requests &amp; Responses</h4>
-<table border="1" cellpadding="4" cellspacing="0">
+<table style="width:100%;">
   <thead>
     <tr>
       <th>Request (Web URL)</th>
@@ -168,7 +168,7 @@
 </ul>
 
 <h4>Example Requests &amp; Responses</h4>
-<table border="1" cellpadding="4" cellspacing="0">
+<table style="width:100%;">
   <thead>
     <tr>
       <th>Request (Deeplink)</th>
@@ -248,7 +248,7 @@
 ### Explore Rest APIs
 
 Endpoints Summary
-<table style="width:100%; border-collapse: collapse;" border="1">
+<table style="width:100%;">
    <tr>
       <th>Method</th>
       <th>Url</th>
