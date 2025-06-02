@@ -1,4 +1,4 @@
-# Case Study - Car Service
+# Case Study - Link Converter
 
 <p align="center">
     <img src="screenshots/main.png" alt="Main Information" width="800" height="650">
