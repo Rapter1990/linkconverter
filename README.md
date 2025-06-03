@@ -456,7 +456,7 @@ http://prometheus-service.default.svc.cluster.local:9090
 ### Docker Image Location
 
 ```
-https://hub.docker.com/repository/docker/noyandocker/carservice/general
+https://hub.docker.com/repository/docker/noyandocker/linkconverter/general
 ```
 
 ### Screenshots
