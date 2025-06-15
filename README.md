@@ -425,12 +425,6 @@ minikube service prometheus-service
 minikube service grafana-service
 ```
 
-- To open AlertManager, click tunnel url link provided by the command shown below to reach out Prometheus
-
-```sh
-minikube service alertmanager-service
-```
-
 - Define prometheus data source url, use this link shown below
 
 ```
