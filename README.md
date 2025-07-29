@@ -380,8 +380,6 @@ To monitor the application, you can use the following tools:
     - Username: `admin`
     - Password: `admin`
 
-- **AlertManager**:  
-  Open in your browser at [http://localhost:9093](http://localhost:9093)
 
 Define prometheus data source url, use this link shown below
 
